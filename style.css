@@ -1,0 +1,386 @@
+/* ==========================================================================
+   ESTILOS GENERALES Y VARIABLES
+   ========================================================================== */
+:root {
+  --color-principal: #0d5350;      /* Verde azulado oscuro (Teal) */
+  --color-secundario: #2eb8b3;     /* Verde azulado claro / Acento */
+  --color-fondo: #f4f8f7;          /* Fondo general suave */
+  --color-texto: #2c3e50;          /* Texto principal */
+  --color-blanco: #ffffff;
+  
+  /* Colores para las 4 cards (Inspirado en el diseño del examen) */
+  --card-rosa: #fdebee;
+  --card-azul: #e8f4fd;
+  --card-verde: #ebf7ee;
+  --card-morado: #f7e8f7;
+
+  --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --border-radius-lg: 18px;
+  --border-radius-md: 12px;
+  --border-radius-sm: 8px;
+  --sombra-suave: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   1. ENCABEZADO Y NAVEGACIÓN (HEADER & NAV) - FLEXBOX
+   ========================================================================== */
+header {
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+  padding: 15px 30px;
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+  box-shadow: var(--sombra-suave);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#icono-logo {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  background-color: var(--color-blanco);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.identidad h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.identidad p {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--color-blanco);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover,
+nav li:first-child a {
+  background-color: var(--color-secundario);
+  color: var(--color-principal);
+}
+
+/* ==========================================================================
+   2. SECCIÓN HERO (IMAGEN Y PRESENTACIÓN PRINCIPAL) - FLEXBOX
+   ========================================================================== */
+.hero {
+  background-color: #e8f5ee;
+  border-radius: var(--border-radius-lg);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 40px;
+  box-shadow: var(--sombra-suave);
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h2 {
+  font-size: 2.2rem;
+  color: var(--color-principal);
+  margin-bottom: 12px;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #4a6064;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #083c39;
+  transform: translateY(-2px);
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 450px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   3. SECCIÓN 1: CARDS DE SERVICIOS - GRID
+   ========================================================================== */
+.cards-section {
+  margin-bottom: 40px;
+}
+
+.cards-section h2 {
+  text-align: center;
+  color: var(--color-principal);
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 25px 20px;
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Colores pasteles alternados para las 4 cards[cite: 5] */
+.card:nth-child(1) { background-color: var(--card-rosa); }
+.card:nth-child(2) { background-color: var(--card-azul); }
+.card:nth-child(3) { background-color: var(--card-verde); }
+.card:nth-child(4) { background-color: var(--card-morado); }
+
+.card img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid var(--color-blanco);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  color: #1a3636;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.88rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.card a {
+  color: var(--color-principal);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. SECCIÓN 2: BENEFICIOS Y VENTAJAS[cite: 2, 4]
+   ========================================================================== */
+.beneficios-section {
+  background-color: var(--color-blanco);
+  padding: 35px 40px;
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 40px;
+  box-shadow: var(--sombra-suave);
+}
+
+.beneficios-section h2 {
+  color: var(--color-principal);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.beneficios-section > p {
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 0.98rem;
+}
+
+.beneficios-section h3 {
+  color: #222;
+  font-size: 1.15rem;
+  margin-bottom: 15px;
+}
+
+.beneficios-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.beneficios-section li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.beneficios-section li::before {
+  content: "•";
+  color: var(--color-principal);
+  font-weight: bold;
+  font-size: 1.4rem;
+  position: absolute;
+  left: 5px;
+  top: -3px;
+}
+
+.beneficios-section strong {
+  color: var(--color-principal);
+}
+
+/* ==========================================================================
+   5. SECCIÓN 3: GALERÍA DE IMÁGENES (3 IMÁGENES) - FLEXBOX[cite: 2, 4]
+   ========================================================================== */
+.galeria-section {
+  margin-bottom: 40px;
+}
+
+.galeria-section h2 {
+  text-align: center;
+  color: var(--color-principal);
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+.galeria-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.galeria-container img {
+  flex: 1 1 280px;
+  max-width: 360px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--sombra-suave);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.galeria-container img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+/* ==========================================================================
+   6. PIE DE PÁGINA (FOOTER) - FLEXBOX[cite: 2, 4]
+   ========================================================================== */
+footer {
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+  padding: 25px 35px;
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.footer-info p {
+  font-size: 0.88rem;
+  opacity: 0.9;
+}
+
+.footer-slogan p {
+  font-style: italic;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   DISEÑO ADAPTABLE (RESPONSIVE DESIGN)
+   ========================================================================== */
+@media (max-width: 768px) {
+  header, footer, .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-container {
+    flex-direction: column;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+  }
+}
